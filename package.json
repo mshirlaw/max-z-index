@@ -1,0 +1,25 @@
+{
+  "name": "max-z-index",
+  "version": "1.0.0",
+  "description": "Find the max z-index currently in use in a directory",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mshirlaw/max-z-index.git"
+  },
+  "keywords": [
+    "z-index",
+    "css",
+    "sass",
+    "scss"
+  ],
+  "author": "Matt Shirlaw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mshirlaw/max-z-index/issues"
+  },
+  "homepage": "https://github.com/mshirlaw/max-z-index#readme"
+}
