@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm test"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mshirlaw/max-z-index.git"
@@ -21,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/mshirlaw/max-z-index/issues"
   },
-  "homepage": "https://github.com/mshirlaw/max-z-index#readme"
+  "homepage": "https://github.com/mshirlaw/max-z-index#readme",
+  "dependencies": {
+    "findit": "^2.0.0",
+    "path": "^0.12.7"
+  }
 }
