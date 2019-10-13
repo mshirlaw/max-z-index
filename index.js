@@ -26,8 +26,7 @@ finder.on('file', (file, stat) => {
 function process(file) {
     const contents = fs.readFileSync(file, 'utf8');
     const lines = contents.split('\n');
-    const matched = filter(lines);
-    display(file, lines, matched);
+    display(file, lines, filter(lines));
 }
 
 function filter(lines) {
@@ -41,25 +40,33 @@ function display(file, lines, matched) {
     const show = [...Array(CONTEXT).keys()];
     matched.forEach(match => {
         const { line, index } = match;
-        show.reverse().forEach(offset => {
-            const adjustedOffset = offset + 1;
-            const position = (index - adjustedOffset) + 1;
-            if (position > 0) {
-                print(position, lines[index - adjustedOffset]);
-            }
-        });
+        before(show, index, lines);
         print(index + 1, line);
-        show.reverse().forEach(offset => {
-            const adjustedOffset = offset + 1;
-            const position = (index + adjustedOffset) + 1;
-            if (position <= lines.length) {
-                print(position, lines[index + adjustedOffset]);
-            }
-        });
+        after(show, index, lines);
     });
     console.log('');
 }
 
 function print(position, line) {
     console.log(`${position}: ${line}`);
+}
+
+function before(show, index, lines) {
+    show.reverse().forEach(offset => {
+        const adjustedOffset = offset + 1;
+        const position = (index - adjustedOffset) + 1;
+        if (position > 0) {
+            print(position, lines[index - adjustedOffset]);
+        }
+    });
+}
+
+function after(show, index, lines) {
+    show.reverse().forEach(offset => {
+        const adjustedOffset = offset + 1;
+        const position = (index + adjustedOffset) + 1;
+        if (position <= lines.length) {
+            print(position, lines[index + adjustedOffset]);
+        }
+    });
 }
